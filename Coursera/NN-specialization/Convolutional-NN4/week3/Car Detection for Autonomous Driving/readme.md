@@ -25,24 +25,22 @@
 
 #### Anchor Boxes
 * Anchor boxes are chosen by exploring the training data to choose reasonable height/width ratios that represent the different classes.  For this assignment, 5 anchor boxes were chosen for you (to cover the 80 classes), and stored in the file './model_data/yolo_anchors.txt'
-* The dimension for anchor boxes is the second to last dimension in the encoding: $(m, n_H,n_W,anchors,classes)$.
+* The dimension for anchor boxes is the second to last dimension in the encoding: (m, n_H,n_W,anchors,classes).
 * The YOLO architecture is: IMAGE (m, 608, 608, 3) -> DEEP CNN -> ENCODING (m, 19, 19, 5, 85).  
 
 #### Encoding
 Let's look in greater detail at what this encoding represents. 
 
-<div align="center">
 ![](rm_images/architecture.png)
-<p> Figure: Encoding architecture for YOLO. </p>
-</div>
+<p align="center"> Figure: Encoding architecture for YOLO. </p>
 
 If the center/midpoint of an object falls into a grid cell, that grid cell is responsible for detecting that object.
 Since we are using 5 anchor boxes, each of the 19 x19 cells thus encodes information about 5 boxes. Anchor boxes are defined only by their width and height.
 For simplicity, we will flatten the last two last dimensions of the shape (19, 19, 5, 85) encoding. So the output of the Deep CNN is (19, 19, 425).
 
 <div align="center">
-![](rm_images/flatten.png)
-<p> Figure: Flattening the last two last dimensions. </p>
+<img src="rm_images/flatten.png" style="width:500px;height:400;">
+<p align="center"> Figure: Flattening the last two last dimensions. </p>
 </div>
 
 ### Non-max suppression
@@ -52,25 +50,21 @@ Specifically, following steps are carried out:
 - Get rid of boxes with a low score (meaning, the box is not very confident about detecting a class; either due to the low probability of any object, or low probability of this particular class).
 - Select only one box when several boxes overlap with each other and detect the same object.
 <div align="center">
-![](rm_images/non-max-suppression.png)
-<p> Figure: In this example, the model has predicted 3 cars, but it's actually 3 predictions of the same car. Running non-max suppression (NMS) will select only the most accurate (highest probability) of the 3 boxes. </p>
+<img src="rm_images/non-max-suppression.png" style="width:500px;height:400;">
+<p align="center"> Figure: In this example, the model has predicted 3 cars, but it's actually 3 predictions of the same car. Running non-max suppression (NMS) will select only the most accurate (highest probability) of the 3 boxes. </p>
 </div>
 
 Non-max suppression uses the very important function called **"Intersection over Union"**, or IoU.
 
 <div align="center">
-![](rm_images/iou.png)
 <img src="rm_images/iou.png" style="width:500px;height:400;">
-<p> Figure: Definition of "Intersection over Union". <p>
+<p align="center"> Figure: Definition of "Intersection over Union". <p>
 </div>
 
 If you were to run your session in a for loop over all your images. Here's what you would get:
 
-<div align="center">
-<video width="400" height="200" src="rm_images/pred_video_compressed2.mp4" type="video/mp4" controls>
-</video>
-<p> Predictions of the YOLO model on pictures taken from a camera while driving around the Silicon Valley <br> Thanks [drive.ai](https://www.drive.ai/) for providing this dataset! </p>
-</div>
+![](rm_images/pred_video_compressed2.mp4)
+Predictions of the YOLO model on pictures taken from a camera while driving around the Silicon Valley <br> Thanks [drive.ai][https://www.drive.ai/] for providing this dataset!
 
 ### References: ### 
 The ideas presented in this notebook came primarily from the two YOLO papers. The implementation here also took significant inspiration and used many components from Allan Zelener's GitHub repository. The pre-trained weights used in this exercise came from the official YOLO website. 
