@@ -1,6 +1,7 @@
 <script type="text/javascript" async
 src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"
 </script>
+
 # **Art Generation with Neural Style Transfer** 
 
 $\sum_{i=1}^{10} t_i$	
@@ -29,7 +30,6 @@ We will build the Neural Style Transfer (NST) algorithm in three steps:
 - Build the style cost function \[ $J_{style}(S,G)$ \]
 - Put it together to get $J(G) = \alpha    \[ J_{content}(C,G) + \beta J_{style}(S,G)$ \].
 
-![](output/test.jpg)
 ### Objective
 Neural Style Transfer (NST) is one of the most fun techniques in deep learning. As seen below, it merges two images, namely: a **"content" image (C) and a "style" image (S), to create a "generated" image (G**). 
 The generated image G combines the "content" of the image C with the "style" of image S. 
