@@ -61,6 +61,8 @@ $$J_{content}(C,G) =  \frac{1}{4 \times n_H \times n_W \times n_C}\sum _{ \text{
 * In linear algebra, the Gram matrix G of a set of vectors $(v_{1},\dots ,v_{n})$ is the matrix of dot products, whose entries are ${\displaystyle G_{ij} = v_{i}^T v_{j} = np.dot(v_{i}, v_{j})  }$. 
 * In other words, $G_{ij}$ compares how similar $v_i$ is to $v_j$: If they are highly similar, you would expect them to have a large dot product, and thus for $G_{ij}$ to be large. 
 
+<img src="images/NST_GM.png" style="width:800px;height:400px;">
+
 #### Two meanings of the variable $G$
 * Note that there is an unfortunate collision in the variable names used here. We are following common terminology used in the literature. 
 * $G$ is used to denote the Style matrix (or Gram matrix) 
@@ -75,9 +77,7 @@ $$J_{style}^{[l]}(S,G) = \frac{1}{4 \times {n_C}^2 \times (n_H \times n_W)^2} \s
 
 * $G_{gram}^{(S)}$ Gram matrix of the "style" image.
 * $G_{gram}^{(G)}$ Gram matrix of the "generated" image.
-* Remember, this cost is computed using the hidden layer activations for a particular hidden layer in the network $a^{[l]}$
-
-<img src="images/NST_GM.png" style="width:800px;height:400px;"> 
+* Remember, this cost is computed using the hidden layer activations for a particular hidden layer in the network $a^{[l]}$ 
 
 ### References: ### 
 The ideas presented in this notebook came primarily from the two YOLO papers. The implementation here also took significant inspiration and used many components from Allan Zelener's GitHub repository. The pre-trained weights used in this exercise came from the official YOLO website. 
