@@ -77,6 +77,8 @@ $$J_{style}^{[l]}(S,G) = \frac{1}{4 \times {n_C}^2 \times (n_H \times n_W)^2} \s
 * $G_{gram}^{(G)}$ Gram matrix of the "generated" image.
 * Remember, this cost is computed using the hidden layer activations for a particular hidden layer in the network $a^{[l]}$
 
+<img src="images/NST_GM.png" style="width:800px;height:400px;"> 
+
 ### References: ### 
 The ideas presented in this notebook came primarily from the two YOLO papers. The implementation here also took significant inspiration and used many components from Allan Zelener's GitHub repository. The pre-trained weights used in this exercise came from the official YOLO website. 
 - Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi - [You Only Look Once: Unified, Real-Time Object Detection](https://arxiv.org/abs/1506.02640) (2015)
